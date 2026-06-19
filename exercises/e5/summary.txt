@@ -1,35 +1,35 @@
 data-1.csv
-x: mean=8.72, std=12.16, min=-22.64, max=35.24
-y: mean=12.52, std=6.64, min=-2.57, max=27.38
-correlation: r=0.950
-A noisy but clearly linear relationship between x and y, with no real outliers or odd structure.
+x: mean = 8.72, std = 12.16, min = -22.64, max = 35.24
+y: mean = 12.52, std = 6.64, min = -2.57, max = 27.38
+correlation: r = 0.950
+The x and y values have a strong positive relationship. As x increases, y also increases. The points look mostly linear, with some noise, but nothing too unusual.
 
 data-2.csv
-x: mean=-0.71, std=11.48, min=-33.27, max=27.65
-y: mean=-0.75, std=6.26, min=-18.62, max=14.15
+x: mean = -0.71, std = 11.48, min = -33.27, max = 27.65
+y: mean = -0.75, std = 6.26, min = -18.62, max = 14.15
 correlation: r=0.955
-Another noisy linear relationship between x and y, similar in shape to data-1 but centered near zero.
+This also shows a strong positive linear relationship. It looks similar to data-1, but the values are more centered around zero.
 
 data-3.csv
-x: mean=0.97, std=2.24, min=-2.45, max=4.52
-y: mean=8.51, std=1.15, min=6.64, max=10.55
-correlation: r=0.982
-The points form four separate tight clusters rather than one continuous line, so the high correlation is driven by the clusters' positions rather than a real linear trend within the data.
+x: mean=0.97, std = 2.24, min = -2.45, max = 4.52
+y: mean = 8.51, std  = 1.15, min = 6.64, max = 10.55
+correlation: r  =  0.982
+The correlation is very high, but the graph is not just one normal line. The points are split into four small clusters. So the high correlation mostly comes from where the clusters are placed, not because all the points follow one clear line.
 
 data-4.csv
-x: mean=49.91, std=28.51, min=0, max=87.38
-y: mean=18.55, std=16.55, min=0, max=44.57
-correlation: r=-0.081
-Despite the near-zero correlation, the points trace a clear rectangular outline with letter shapes inside it, showing that summary statistics can completely miss an obvious visual pattern.
+x: mean = 49.91, std = 28.51, min = 0, max = 87.38
+y: mean = 18.55, std = 16.55, min = 0, max = 44.57
+correlation: r  =  -0.081
+The correlation is close to zero, but the graph still has a clear pattern. The points make a rectangle with shapes or letters inside. This shows that statistics alone can miss patterns that are obvious in a graph.
 
 data-5.csv
-x: mean=49.91, std=28.50, min=4.34, max=91.05
-y: mean=18.56, std=16.54, min=0.06, max=49.93
-correlation: r=-0.088
-The points form distinct vertical line clusters at a few fixed x-values, another case where a near-zero correlation hides a clear non-random structure.
+x: mean = 49.91, std = 28.50, min = 4.34, max = 91.05
+y: mean = 18.56, std = 16.54, min = 0.06, max = 49.93
+correlation: r = -0.088
+The correlation is also close to zero, but the graph is not random. The points make vertical groups at certain x-values. So even though the correlation is low, there is still a clear structure.
 
 data-6.csv
-x: mean=7.22, std=11.92, min=-24.33, max=35.40
-y: mean=7.60, std=11.76, min=-22.96, max=36.08
-correlation: r=0.935
-A strong, almost perfectly linear relationship between x and y, close to y=x.
+x: mean = 7.22, std = 11.92, min = -24.33, max = 35.40
+y: mean = 7.60, std = 11.76, min = -22.96, max = 36.08
+correlation: r = 0.935
+This shows a very strong positive linear relationship. The points are close to a straight line, almost like y  =  x.
