@@ -1,0 +1,18 @@
+1. Of log, exp, sqrt, and square, sqrt got closest to satisfying the T-test assumptions: one
+   group still failed normality, the other passed, and equal-variance passed cleanly.
+
+2. Original T-test: if we could reject the null, it would mean the average number of comments
+   per day differs between weekdays and weekends -- but the assumptions are violated, so this
+   conclusion isn't trustworthy.
+   Transformed T-test: if we could reject the null, it would mean the square root of the daily
+   comment count differs between weekdays and weekends -- valid on the transformed scale, but
+   the violated weekday normality assumption still makes it shaky, and it's a less direct
+   statement about the actual comment counts.
+
+3. The weekly-aggregated T-test and the Mann-Whitney U-test are the two trustworthy approaches,
+   sincefirt they're the only ones whose assumptions actually hold. Between those, I think the
+   Mann-Whitney test does a better job answering the original question, since it works directly
+   on the original daily counts without aggregating them into weekly averages (which throws away
+   information and subtly changes the question to a weekly one).
+
+4. More comments are posted on weekdays (average ~1823.6) than on weekends (average ~1269.5).
