@@ -1,0 +1,17 @@
+data-1.csv
+The x and y values have a strong positive relationship. As x increases, y also increases. The points look mostly linear, with some noise, but nothing too unusual.
+
+data-2.csv
+This also shows a strong positive linear relationship. It looks similar to data-1, but the values are more centered around zero.
+
+data-3.csv
+The correlation is very high, but the graph is not just one normal line. The points are split into four small clusters. So the high correlation mostly comes from where the clusters are placed, not because all the points follow one clear line.
+
+data-4.csv
+The correlation is close to zero, but the graph still has a clear pattern. The points make a rectangle with shapes or letters inside. This shows that statistics alone can miss patterns that are obvious in a graph.
+
+data-5.csv
+The correlation is also close to zero, but the graph is not random. The points make vertical groups at certain x-values. So even though the correlation is low, there is still a clear structure.
+
+data-6.csv
+This shows a very strong positive linear relationship. The points are close to a straight line, almost like y = x.
