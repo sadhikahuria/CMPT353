@@ -1,0 +1,9 @@
+python3 -c "import statsmodels; print('ok')"
+
+python3 ab_analysis.py searches.json
+
+time python3 create_data.py
+
+python3 -c "import pandas as pd; data = pd.read_csv('data.csv'); print(data.shape); print(data.groupby('sort')['time'].count())"
+
+python3 analyse_data.py
