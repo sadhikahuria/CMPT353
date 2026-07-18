@@ -25,7 +25,7 @@ def main(in_directory, out_directory):
     with_bins = xyz.select(
         xyz['x'],
         # TODO: also the y values
-        xyz['y']
+        xyz['y'],
         (xyz['id'] % 10).alias('bin'),
     )
     #with_bins.show(); return
