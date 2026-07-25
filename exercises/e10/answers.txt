@@ -1,0 +1,35 @@
+1. Timing results
+
+   These four values must be measured on the machine where the assignment is run because Spark startup time and processing time depend on the computer, Java/Spark setup, storage speed, and current system load.
+
+   (1) reddit-0, schema supplied, cached averages:
+       real __________
+
+   (2) reddit-2b, no schema supplied, no cache:
+       real __________
+
+   (3) reddit-2b, schema supplied, no cache:
+       real __________
+
+   (4) reddit-2b, schema supplied, cached averages:
+       real __________
+
+   Commands used:
+
+   time spark-submit --master="local[1]" reddit_averages.py reddit-0 output
+
+   For cases (2)-(4), run on reddit-2b after making only the requested schema
+   and cache changes. Delete or overwrite the output directories between runs.
+
+2. Compare the time saved by supplying the schema, (2) minus (3), with the time
+   saved by caching the averages, (3) minus (4).
+
+   If (2)-(3) is larger, most of the avoidable time appears to be file reading
+   and schema inference. If (3)-(4) is larger, more of it appears to be the
+   repeated calculation of the averages. Replace this paragraph with the
+   conclusion supported by the measured times before submitting.
+
+3. I used .cache() once on the filtered `pages` DataFrame, after restricting the
+   data to English non-Main_Page, non-Special pages and selecting hour, page,
+   and views. That DataFrame is reused first to calculate the maximum views in
+   each hour and then in the join that recovers every page with that maximum.
