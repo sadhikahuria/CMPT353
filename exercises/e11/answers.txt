@@ -1,0 +1,12 @@
+1. reddit_relative.py caching
+
+I cached comments and relative. comments gets used twice (once to build averages, once in the join for relative), and relative also gets used twice (once for best_scores, once in the final join), so it makes sense to cache both of those.
+
+If I hadn't cached anything, it probablly still would've given the right answer, just slower, since Spark would just recompute comments and relative from scratch each time they're needed instead of reusing what it already built. So it should've still worked, just redone a bunch of work it didn't need to.
+
+2. broadcast timing
+
+with .hint('broadcast'): 44.164s
+without (.hint() removed, --conf spark.sql.adaptive.autoBroadcastJoinThreshold=-1): 43.208s
+
+honestly these came out probablly about the same, no-broadcast was actually a bit faster (43.2s vs 44.2s) which isnt really what i expected going in. it makes sense that broadcast should be faster since it skips shuffling the big comments/relative side over the network and just sends the small averages/best_scores table to every executor instead, but the difference i got is only about a second on a ~44s job, so it's probablly just noise, especially since other people in the class are probablly running jobs on the same cluster at the same time.

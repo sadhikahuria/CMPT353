@@ -32,21 +32,21 @@ comments_schema = types.StructType([
 def main(in_directory, out_directory):
     comments = spark.read.json(in_directory, schema=comments_schema)
 
-    averages = averages.filter(averages['avg_score'] > 0)
     # TODO
 
-    averages = comments.groupBy('subreddit').agg(functions.avg('score').alias('avg_score'))
-
+    verages = comments.groupBy('subreddit').agg(functions.avg('score').alias('avg_score'))
+    averages = averages.filter(averages['avg_score'] > 0)
+ 
     relative = comments.join(averages.hint('broadcast'), on='subreddit').select(
         comments['subreddit'], comments['author'],
         (comments['score'] / averages['avg_score']).alias('rel_score'),
     ).cache()
-
+ 
     best_scores = relative.groupBy('subreddit').agg(functions.max('rel_score').alias('rel_score'))
-
+ 
     best_author = relative.join(best_scores.hint('broadcast'), on=['subreddit', 'rel_score']) \
         .select('subreddit', 'author', 'rel_score')
-    
+ 
     best_author.write.json(out_directory, mode='overwrite')
 
 
